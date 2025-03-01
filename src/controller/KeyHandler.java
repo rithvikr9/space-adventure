@@ -72,10 +72,10 @@ public class KeyHandler implements KeyListener {
 
   private void playState(int code) {
     // Player movement
-    if (code == KeyEvent.VK_W) { upPressed = true; }
-    if (code == KeyEvent.VK_A) { leftPressed = true; }
-    if (code == KeyEvent.VK_S) { downPressed = true; }
-    if (code == KeyEvent.VK_D) { rightPressed = true; }
+    if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) { upPressed = true; }
+    if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) { leftPressed = true; }
+    if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) { downPressed = true; }
+    if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) { rightPressed = true; }
 
     // Other controls
     if (code == KeyEvent.VK_ESCAPE) { gameModel.gameState = gameModel.pausedState; }
@@ -100,7 +100,7 @@ public class KeyHandler implements KeyListener {
   }
 
   private void pausedState(int code) {
-    if (code == KeyEvent.VK_ESCAPE) { gameModel.gameState = gameModel.pausedState; }
+    if (code == KeyEvent.VK_ESCAPE) { gameModel.gameState = gameModel.playState; }
 
     if (code == KeyEvent.VK_UP) {
       gameModel.choiceNum--;
