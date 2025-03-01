@@ -26,12 +26,6 @@ public class Model {
 
   public Spaceship spaceship = new Spaceship(this, 64, 64);
   public ArrayList<Alien> enemies = new ArrayList<>();
-
-  // Useful variables
-  private int xMin = 128;
-  private int xMax = 1280 - 64;
-  private int yMin = 150;
-  private int yMax = 728 - 64;
   
   private int generateRandomCoordinate(int min, int max) { return ThreadLocalRandom.current().nextInt(min, max + 1); }
   
@@ -39,15 +33,21 @@ public class Model {
     int spawnX, spawnY;
     int[][] spawnPositions = new int[num][2];
     
+    // Bound variables
+    int xMin = 128;
+    int xMax = 1280 - 64;
+    int yMin = 150;
+    int yMax = 728 - 64;
+    
     for (int i = 0; i < num; i++) {
       spawnX = generateRandomCoordinate(xMin, xMax);
       spawnY = generateRandomCoordinate(yMin, yMax);
       
-      for (int j = 0; j < spawnPositions.length; j++) {
-        if (spawnX >= spawnPositions[j][0] && spawnX <= spawnPositions[j][0] + 64) {
+      for (int[] spawnPosition : spawnPositions) {
+        if (spawnX >= spawnPosition[0] && spawnX <= spawnPosition[0] + 64) {
           spawnX = generateRandomCoordinate(xMin, xMax);
         }
-        if (spawnY >= spawnPositions[j][1] && spawnY <= spawnPositions[j][1] + 64) {
+        if (spawnY >= spawnPosition[1] && spawnY <= spawnPosition[1] + 64) {
           spawnY = generateRandomCoordinate(yMin, yMax);
         }
       }
