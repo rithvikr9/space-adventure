@@ -49,12 +49,6 @@ public class Alien extends Entity {
     this.hitbox.height = shipSize;
   }
 
-  @Override
-  protected void updateHitbox() {
-    this.hitbox.x = this.x;
-    this.hitbox.y = this.y;
-  }
-
   private void setAmmo() {
     maxMissiles = 10;
     maxBullets = 50;

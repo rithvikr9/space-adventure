@@ -32,12 +32,6 @@ public class Missile extends Entity {
     this.hitbox.height = (gameModel.spaceship.spaceshipSize) / 3;
   }
 
-  @Override
-  protected void updateHitbox() {
-    this.hitbox.x = this.x;
-    this.hitbox.y = this.y;
-  }
-
   public boolean isVisible() { return visible; }
   public void setVisible(boolean visible) { this.visible = visible; }
 

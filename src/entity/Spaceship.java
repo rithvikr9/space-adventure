@@ -69,12 +69,6 @@ public class Spaceship extends Entity {
     this.hitbox.height = spaceshipSize;
   }
 
-  @Override
-  protected void updateHitbox() {
-    this.hitbox.x = this.x;
-    this.hitbox.y = this.y;
-  }
-
   public ArrayList<Missile> getMissiles() { return missiles; }
   public ArrayList<Bullet> getBullets() { return bullets; }
 

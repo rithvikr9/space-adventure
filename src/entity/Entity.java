@@ -11,7 +11,7 @@ public abstract class Entity {
 
   boolean visible;
 
-  public Rectangle hitbox= new Rectangle();;
+  public Rectangle hitbox= new Rectangle();
 
   public Entity(Model gameModel) {
     this.gameModel = gameModel;
@@ -21,7 +21,10 @@ public abstract class Entity {
   public int speed;
 
   protected abstract void setHitbox();
-  protected abstract void updateHitbox();
+  protected void updateHitbox() {
+    this.hitbox.x = this.x;
+    this.hitbox.y = this.y;
+  }
 
   public abstract void update();
   public abstract void draw(Graphics2D g2) ;
