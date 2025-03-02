@@ -29,6 +29,5 @@ public class GamePanel extends JPanel {
     else if (gameModel.gameState == gameModel.playState) { renderHandler.renderPlayState(g2); }
     else if (gameModel.gameState == gameModel.pausedState) { renderHandler.renderPausedState(g2); }
     else if (gameModel.gameState == gameModel.helpScreen) { renderHandler.renderHelpScreen(g2); }
-//    else if (gameModel.gameState == gameModel.gameOverState) { renderHandler.renderGameOverState(g2); }
   }
 }

@@ -18,7 +18,6 @@ public class Model {
   public final int playState = 1;
   public final int pausedState = 2;
   public final int helpScreen = 3;
-//  public final int gameOverState = 4;
 
   public int choiceNum = 0;
 
@@ -61,8 +60,8 @@ public class Model {
   }
   
   public void spawnEnemies(int[][] positions) {
-    for (int i = 0; i < positions.length; i++) {
-      enemies.add(new Alien(this, positions[i][0], positions[i][1]));
+    for (int[] position : positions) {
+      enemies.add(new Alien(this, position[0], position[1]));
     }
   }
 

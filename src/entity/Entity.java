@@ -13,9 +13,7 @@ public abstract class Entity {
 
   public Rectangle hitbox= new Rectangle();
 
-  public Entity(Model gameModel) {
-    this.gameModel = gameModel;
-  }
+  public Entity(Model gameModel) { this.gameModel = gameModel; }
 
   public int x, y;
   public int speed;

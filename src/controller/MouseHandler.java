@@ -8,10 +8,4 @@ public class MouseHandler extends MouseAdapter {
   public void mouseClicked(MouseEvent e) {
     System.out.println("Mouse click at " + e.getX() + ", " + e.getY());
   }
-
-  @Override
-  public void mousePressed(MouseEvent e) {}
-
-  @Override
-  public void mouseReleased(MouseEvent e) {}
 }

@@ -4,21 +4,9 @@ import main.Model;
 import utility.ImageLoader;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Alien extends Entity {
   public final int shipSize = 64;
-  private ArrayList<Missile> missiles;
-  private ArrayList<Bullet> bullets;
-
-  private boolean canShootMissiles, canShootBullets;
-  private double missileFireTime, bulletFireTime;
-  private int maxMissiles;
-  public int missileQuantity;
-
-  private int maxBullets;
-  public int bulletQuantity;
 
   public Alien(Model gameModel, int x, int y) {
     super(gameModel);
@@ -31,14 +19,8 @@ public class Alien extends Entity {
 
   private void setDefaults() {
     this.image = ImageLoader.loadImage("alien");
-    
-    missiles = new ArrayList<>();
-    bullets = new ArrayList<>();
-    canShootMissiles = true;
-    canShootBullets = true;
 
     setHitbox();
-    setAmmo();
   }
 
   @Override
@@ -48,61 +30,9 @@ public class Alien extends Entity {
     this.hitbox.width = shipSize;
     this.hitbox.height = shipSize;
   }
-
-  private void setAmmo() {
-    maxMissiles = 10;
-    maxBullets = 50;
-
-    missileQuantity = maxMissiles;
-    bulletQuantity = maxBullets;
-  }
-
-  private void fireMissile() {
-    if (missileQuantity > 0) {
-      missileFireTime = System.nanoTime();
-      missiles.add(new Missile(gameModel));
-      missileQuantity--;
-      canShootMissiles = false;
-      gameModel.playSE(0);
-    }
-  }
-
-  private void fireBullet() {
-    if (bulletQuantity > 0) {
-      bulletFireTime = System.nanoTime();
-      bullets.add(new Bullet(gameModel));
-      bulletQuantity--;
-      canShootBullets = false;
-      gameModel.playSE(1);
-    }
-  }
-
-  private void updateMissiles() {
-    for (int i = 0; i < missiles.size(); i++) {
-      Missile missile = missiles.get(i);
-      if (missile.isVisible()) {
-        missile.update();
-      } else {
-        missiles.remove(i);
-      }
-    }
-  }
-
-  private void updateBullets() {
-    for (int i = 0; i < bullets.size(); i++) {
-      Bullet bullet = bullets.get(i);
-      if (bullet.isVisible()) {
-        bullet.update();
-      } else {
-        bullets.remove(i);
-      }
-    }
-  }
-
+  
   @Override
   public void update() {
-    updateMissiles();
-    updateBullets();
     updateHitbox();
   }
 

@@ -1,7 +1,6 @@
 package controller;
 
 import main.Model;
-import ui.UI;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -29,7 +28,6 @@ public class KeyHandler implements KeyListener {
     else if (gameModel.gameState == gameModel.playState) { playState(code); }
     else if (gameModel.gameState == gameModel.pausedState) { pausedState(code); }
     else if (gameModel.gameState == gameModel.helpScreen) { helpScreen(code); }
-//    else if (gameModel.gameState == gameModel.gameOverState) { gameOverState(code); }
   }
 
   @Override
@@ -137,31 +135,4 @@ public class KeyHandler implements KeyListener {
       }
     }
   }
-  
-//  private void gameOverState(int code) {
-//    if (code == KeyEvent.VK_UP) {
-//      gameModel.choiceNum--;
-//      if (gameModel.choiceNum < 0) { gameModel.choiceNum = 2; }
-//      gameModel.playSE(5);
-//    }
-//    if (code == KeyEvent.VK_DOWN) {
-//      gameModel.choiceNum++;
-//      if (gameModel.choiceNum > 2) { gameModel.choiceNum = 0; }
-//      gameModel.playSE(5);
-//    }
-//
-//    if (code == KeyEvent.VK_ENTER) {
-//      if (gameModel.choiceNum == 0) {
-//        gameModel.gameState = gameModel.playState;
-//        gameModel.reset();
-//        gameModel.playSE(6);
-//      } else if (gameModel.choiceNum == 1) {
-//        gameModel.gameState = gameModel.menuState;
-//        gameModel.choiceNum = 0;
-//        gameModel.playSE(6);
-//      } else if (gameModel.choiceNum == 2) {
-//        System.exit(0);
-//      }
-//    }
-//  }
 }

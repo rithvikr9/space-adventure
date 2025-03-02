@@ -35,11 +35,6 @@ public class UI {
     drawMenuTitleText("Help", g2);
     drawControlsText(g2);
   }
-  
-//  public void drawGameOverState(Graphics2D g2) {
-//    drawMenuTitleText("Game Over", g2);
-//    displayGameOverOptions(g2);
-//  }
 
   // Menu state helper functions
   private void displayGameTitle(Graphics2D g2) {
@@ -175,31 +170,6 @@ public class UI {
     g2.drawString("Back", x, y);
     g2.drawString(">", x - 50, y);
   }
-  
-  // Game over state helper functions
-//  private void displayGameOverOptions(Graphics2D g2) {
-//    String text;
-//    int x, y;
-//
-//    g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 48F));
-//    text = "New Game";
-//    x = centerText(text, g2);
-//    y = 350;
-//    g2.drawString(text, x, y);
-//    if (gameModel.choiceNum == 0) { g2.drawString(">", x - 50, y); }
-//
-//    text = "Main Menu";
-//    x = centerText(text, g2);
-//    y += 100;
-//    g2.drawString(text, x, y);
-//    if (gameModel.choiceNum == 1) { g2.drawString(">", x - 50, y); }
-//
-//    text = "Quit";
-//    x = centerText(text, g2);
-//    y += 100;
-//    g2.drawString(text, x, y);
-//    if (gameModel.choiceNum == 2) { g2.drawString(">", x - 50, y); }
-//  }
 
   // Helper functions
   private String firingModeText() { return gameModel.keyH.missileMode ? "Missile" : "Gun"; }
